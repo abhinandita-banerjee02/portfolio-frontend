@@ -15,9 +15,9 @@ import {
 // 3. Create an Email Template           → copy the Template ID
 // 4. Go to Account → General            → copy the Public Key
 // 5. Paste the three values below:
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
+const EMAILJS_SERVICE_ID  = 'service_p8fl6ld'
+const EMAILJS_TEMPLATE_ID = 'template_by2dj1j'
+const EMAILJS_PUBLIC_KEY  = 'HMGcvlTPdbm2rX4vS'
 // ────────────────────────────────────────────────────────────────
 
 const containerVariants = {
