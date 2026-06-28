@@ -211,9 +211,16 @@ img { max-width: 100%; display: block; }
   align-items: center;
   position: relative;
   overflow: hidden;
-  background:
-    url('/hero-bg.png') bottom center / 100% auto no-repeat,
-    linear-gradient(180deg, #dff0ea 0%, #c8e4da 70%, #3a7d6e 100%);
+  background: #dff0ea;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 45%;
+  background: url('/hero-bg.png') bottom center / 100% auto no-repeat;
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-content { position: relative; z-index: 2; max-width: 680px; }
 
