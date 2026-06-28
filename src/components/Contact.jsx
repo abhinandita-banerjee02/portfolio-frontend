@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import {
   FiMail,
   FiSend,
@@ -7,6 +8,17 @@ import {
   FiLinkedin,
   FiGithub,
 } from 'react-icons/fi'
+
+// ── EmailJS configuration ──────────────────────────────────────
+// 1. Sign up free at https://www.emailjs.com
+// 2. Add an Email Service  (e.g. Gmail) → copy the Service ID
+// 3. Create an Email Template           → copy the Template ID
+// 4. Go to Account → General            → copy the Public Key
+// 5. Paste the three values below:
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
+// ────────────────────────────────────────────────────────────────
 
 const containerVariants = {
   hidden: {},
@@ -19,9 +31,10 @@ const itemVariants = {
 }
 
 export default function Contact() {
+  const formRef = useRef(null)
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     subject: '',
     message: '',
   })
@@ -38,20 +51,20 @@ export default function Contact() {
     setStatus(null)
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      )
+      setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
+      setFormData({ from_name: '', from_email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again or email me directly.',
       })
-
-      if (response.ok) {
-        setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
-        setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
-      }
-    } catch {
-      setStatus({ type: 'error', message: 'Network error. Please check your connection.' })
     } finally {
       setLoading(false)
     }
@@ -142,33 +155,34 @@ export default function Contact() {
             </motion.div>
 
             <motion.form
+              ref={formRef}
               className="contact-form"
               onSubmit={handleSubmit}
               variants={itemVariants}
             >
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label" htmlFor="name">Your Name</label>
+                  <label className="form-label" htmlFor="from_name">Your Name</label>
                   <input
-                    id="name"
-                    name="name"
+                    id="from_name"
+                    name="from_name"
                     type="text"
                     className="form-input"
                     placeholder="John Doe"
-                    value={formData.name}
+                    value={formData.from_name}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" htmlFor="email">Your Email</label>
+                  <label className="form-label" htmlFor="from_email">Your Email</label>
                   <input
-                    id="email"
-                    name="email"
+                    id="from_email"
+                    name="from_email"
                     type="email"
                     className="form-input"
                     placeholder="john@example.com"
-                    value={formData.email}
+                    value={formData.from_email}
                     onChange={handleChange}
                     required
                   />
