@@ -34,13 +34,26 @@ function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDur
   return displayed
 }
 
-function Cloud({ className }) {
+function Cloud({ className, showFace = false }) {
   return (
     <svg className={className} viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="100" cy="52" rx="80" ry="28" fill="white" opacity=".85" />
       <ellipse cx="62" cy="40" rx="42" ry="30" fill="white" opacity=".9" />
       <ellipse cx="140" cy="42" rx="38" ry="26" fill="white" opacity=".9" />
       <ellipse cx="100" cy="34" rx="50" ry="32" fill="white" opacity=".95" />
+      {showFace && (
+        <g className="cloud-face">
+          {/* Left eye — happy arc */}
+          <path d="M82 42 Q86 36 90 42" stroke="#b0b0b0" strokeWidth="2" strokeLinecap="round" fill="none" />
+          {/* Right eye — happy arc */}
+          <path d="M110 42 Q114 36 118 42" stroke="#b0b0b0" strokeWidth="2" strokeLinecap="round" fill="none" />
+          {/* Smile */}
+          <path d="M92 50 Q100 56 108 50" stroke="#b0b0b0" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+          {/* Rosy cheeks */}
+          <ellipse cx="82" cy="49" rx="5" ry="3" fill="#e8c4bc" opacity=".5" />
+          <ellipse cx="118" cy="49" rx="5" ry="3" fill="#e8c4bc" opacity=".5" />
+        </g>
+      )}
     </svg>
   )
 }
@@ -51,11 +64,11 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-clouds" aria-hidden="true">
-        <Cloud className="cloud cloud-1" />
+        <Cloud className="cloud cloud-1" showFace />
         <Cloud className="cloud cloud-2" />
-        <Cloud className="cloud cloud-3" />
+        <Cloud className="cloud cloud-3" showFace />
         <Cloud className="cloud cloud-4" />
-        <Cloud className="cloud cloud-5" />
+        <Cloud className="cloud cloud-5" showFace />
       </div>
 
       <div className="container">
