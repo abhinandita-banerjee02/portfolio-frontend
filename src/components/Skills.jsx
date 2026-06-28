@@ -79,7 +79,7 @@ function SkillItem({ name, logo, color }) {
       className="skill-chip"
       variants={skillItemVariants}
       whileHover={{ scale: 1.04, x: 6 }}
-      style={{ '--skill-accent': color }}
+      style={{ color: color }}
     >
       <span className="skill-chip-logo" style={{ color }}>
         {logo}
@@ -113,7 +113,7 @@ export default function Skills() {
             {skillCategories.map((category) => (
               <motion.div
                 key={category.title}
-                className="glass-card skill-category"
+                className="skill-category"
                 variants={cardVariants}
               >
                 <div className="skill-category-icon">{category.icon}</div>

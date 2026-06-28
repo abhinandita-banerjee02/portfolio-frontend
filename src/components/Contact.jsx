@@ -91,7 +91,7 @@ export default function Contact() {
 
           <div className="contact-grid">
             <motion.div
-              className="glass-card contact-info-card"
+              className="contact-info-card"
               variants={itemVariants}
             >
               <h3 className="contact-info-title">Let&apos;s Connect</h3>

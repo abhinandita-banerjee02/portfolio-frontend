@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiArrowRight, FiDownload } from 'react-icons/fi'
 
-const roles = ['Software Engineer', 'Full Stack Developer', 'Cloud Enthusiast', 'Problem Solver']
+const roles = ['Software Engineer', 'Full Stack Developer', 'Cloud Enthusiast']
 
-function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDuration = 2000) {
+function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDuration = 2200) {
   const [displayed, setDisplayed] = useState('')
   const [index, setIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -34,123 +34,41 @@ function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDur
   return displayed
 }
 
-function ParticleCanvas() {
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let animationId
-    let particles = []
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    const createParticles = () => {
-      particles = []
-      const count = Math.floor((canvas.width * canvas.height) / 12000)
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.5 + 0.1,
-        })
-      }
-    }
-
-    const drawParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((p, i) => {
-        p.x += p.vx
-        p.y += p.vy
-
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(108, 99, 255, ${p.opacity})`
-        ctx.fill()
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[j].x - p.x
-          const dy = particles[j].y - p.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-
-          if (dist < 120) {
-            ctx.beginPath()
-            ctx.moveTo(p.x, p.y)
-            ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(108, 99, 255, ${0.08 * (1 - dist / 120)})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
-        }
-      })
-
-      animationId = requestAnimationFrame(drawParticles)
-    }
-
-    resize()
-    createParticles()
-    drawParticles()
-
-    window.addEventListener('resize', () => {
-      resize()
-      createParticles()
-    })
-
-    return () => {
-      cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
-
-  return <canvas ref={canvasRef} className="hero-canvas" />
-}
-
 export default function Hero() {
   const typedText = useTypingEffect(roles)
 
   return (
     <section className="hero" id="hero">
-      <ParticleCanvas />
       <div className="container">
         <motion.div
           className="hero-content"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
         >
           <motion.p
             className="hero-greeting"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
           >
-            Hello, World! I&apos;m
+            Hi, I&apos;m
           </motion.p>
 
           <motion.h1
             className="hero-name"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.6 }}
           >
-            <span className="gradient-text">Abhinandita Banerjee</span>
+            Abhinandita.
           </motion.h1>
 
           <motion.p
             className="hero-tagline"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
+            transition={{ delay: 0.8 }}
           >
             {typedText}
             <span className="typing-cursor" />
@@ -160,17 +78,18 @@ export default function Hero() {
             className="hero-description"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.1 }}
+            transition={{ delay: 1 }}
           >
-            Software Engineer at Amdocs building enterprise-grade microservices and
-            telecom fulfillment systems. AWS Certified Solutions Architect.
+            I build enterprise-grade microservices and telecom fulfillment systems
+            at Amdocs. AWS Certified Solutions Architect with a knack for turning
+            complex requirements into clean, reliable software.
           </motion.p>
 
           <motion.div
             className="hero-cta"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3 }}
+            transition={{ delay: 1.2 }}
           >
             <a href="#projects" className="btn btn-primary">
               View My Work <FiArrowRight />
@@ -190,7 +109,7 @@ export default function Hero() {
         className="hero-scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        transition={{ delay: 1.8 }}
       >
         <span>Scroll</span>
         <div className="scroll-dot" />

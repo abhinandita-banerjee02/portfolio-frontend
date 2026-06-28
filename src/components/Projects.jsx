@@ -74,7 +74,7 @@ export default function Projects() {
             {projects.map((project) => (
               <motion.div
                 key={project.title}
-                className="glass-card project-card"
+                className="project-card"
                 variants={cardVariants}
                 whileHover={{ y: -6 }}
               >

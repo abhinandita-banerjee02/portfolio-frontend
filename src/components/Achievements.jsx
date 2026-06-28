@@ -73,7 +73,7 @@ export default function Achievements() {
             {achievements.map((item) => (
               <motion.div
                 key={item.label}
-                className="glass-card achievement-card"
+                className="achievement-card"
                 variants={cardVariants}
                 whileHover={{ scale: 1.06, rotate: 1 }}
               >

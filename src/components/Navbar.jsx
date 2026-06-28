@@ -24,22 +24,22 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`navbar ${scrolled ? 'scrolled' : ''}`}
-      initial={{ y: -100 }}
+      initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="container">
         <a href="#" className="nav-logo">
-          &lt;Portfolio /&gt;
+          Abhinandita
         </a>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navItems.map((item, i) => (
             <motion.li
               key={item.label}
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i + 0.3 }}
+              transition={{ delay: 0.08 * i + 0.25 }}
             >
               <a href={item.href} onClick={handleLinkClick}>
                 {item.label}

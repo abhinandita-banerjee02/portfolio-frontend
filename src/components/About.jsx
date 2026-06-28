@@ -31,7 +31,7 @@ export default function About() {
             <FiUser /> About Me
           </motion.span>
           <motion.h2 className="section-title" variants={itemVariants}>
-            Turning ideas into <span className="gradient-text">reality</span>
+            Turning ideas into <span className="gradient-text">software</span>
           </motion.h2>
 
           <div className="about-grid">
