@@ -34,11 +34,30 @@ function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDur
   return displayed
 }
 
+function Cloud({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="52" rx="80" ry="28" fill="white" opacity=".85" />
+      <ellipse cx="62" cy="40" rx="42" ry="30" fill="white" opacity=".9" />
+      <ellipse cx="140" cy="42" rx="38" ry="26" fill="white" opacity=".9" />
+      <ellipse cx="100" cy="34" rx="50" ry="32" fill="white" opacity=".95" />
+    </svg>
+  )
+}
+
 export default function Hero() {
   const typedText = useTypingEffect(roles)
 
   return (
     <section className="hero" id="hero">
+      <div className="hero-clouds" aria-hidden="true">
+        <Cloud className="cloud cloud-1" />
+        <Cloud className="cloud cloud-2" />
+        <Cloud className="cloud cloud-3" />
+        <Cloud className="cloud cloud-4" />
+        <Cloud className="cloud cloud-5" />
+      </div>
+
       <div className="container">
         <motion.div
           className="hero-content"
