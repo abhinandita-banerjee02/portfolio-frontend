@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi'
 
 const socials = [
-  { icon: <FiGithub />, href: '', label: 'GitHub' },
-  { icon: <FiLinkedin />, href: '', label: 'LinkedIn' },
+  { icon: <FiGithub />, href: 'https://github.com/abhinandita-banerjee02', label: 'GitHub' },
+  { icon: <FiLinkedin />, href: 'https://linkedin.com/in/abhinandita-banerjee', label: 'LinkedIn' },
   { icon: <FiTwitter />, href: '', label: 'Twitter' },
   { icon: <FiMail />, href: 'mailto:abhinanditaban@gmail.com', label: 'Email' },
 ]

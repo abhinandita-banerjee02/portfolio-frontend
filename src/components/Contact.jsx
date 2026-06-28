@@ -113,7 +113,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://linkedin.com/in/abhinandita-banerjee"
                   className="contact-link-item"
                   target="_blank"
                   rel="noreferrer"
@@ -122,14 +122,13 @@ export default function Contact() {
                   <div>
                     <div className="contact-link-label">LinkedIn</div>
                     <div className="contact-link-value">
-                      {/* Add your LinkedIn profile URL above */}
                       linkedin.com/in/abhinandita-banerjee
                     </div>
                   </div>
                 </a>
 
                 <a
-                  href=""
+                  href="https://github.com/abhinandita-banerjee02"
                   className="contact-link-item"
                   target="_blank"
                   rel="noreferrer"
@@ -138,17 +137,21 @@ export default function Contact() {
                   <div>
                     <div className="contact-link-label">GitHub</div>
                     <div className="contact-link-value">
-                      {/* Add your GitHub profile URL above */}
                       github.com/abhinandita-banerjee02
                     </div>
                   </div>
                 </a>
 
-                <a href="#" className="contact-link-item">
+                <a
+                  href="https://maps.google.com/?q=Pune,India"
+                  className="contact-link-item"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="contact-link-icon"><FiMapPin /></div>
                   <div>
                     <div className="contact-link-label">Location</div>
-                    <div className="contact-link-value">Your City, Country</div>
+                    <div className="contact-link-value">Pune, India</div>
                   </div>
                 </a>
               </div>

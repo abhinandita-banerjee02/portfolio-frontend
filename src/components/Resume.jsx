@@ -92,7 +92,8 @@ export default function Resume() {
               </motion.h2>
             </div>
             <motion.a
-              href="#"
+              href="/Abhinandita_Banerjee_Resume.pdf"
+              download="Abhinandita_Banerjee_Resume.pdf"
               className="btn btn-outline"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}

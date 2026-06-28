@@ -175,7 +175,11 @@ export default function Hero() {
             <a href="#projects" className="btn btn-primary">
               View My Work <FiArrowRight />
             </a>
-            <a href="#resume" className="btn btn-outline">
+            <a
+              href="/Abhinandita_Banerjee_Resume.pdf"
+              download="Abhinandita_Banerjee_Resume.pdf"
+              className="btn btn-outline"
+            >
               <FiDownload /> Download CV
             </a>
           </motion.div>
