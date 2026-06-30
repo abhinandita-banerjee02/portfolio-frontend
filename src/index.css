@@ -20,6 +20,7 @@
   --font-body:   'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display:'DM Serif Display', Georgia, serif;
   --font-hand:   'Caveat', cursive;
+  --font-poppins:'Poppins', 'DM Sans', sans-serif;
   --max-width:   1100px;
   --section-gap: 100px 0;
   --transition:  all .25s ease;
@@ -442,6 +443,7 @@ img { max-width: 100%; display: block; }
   opacity: .2;
 }
 .about-text p {
+  font-family: var(--font-poppins);
   color: var(--text-secondary);
   margin-bottom: 20px;
   font-size: 1.2rem;
@@ -689,6 +691,29 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── Contact ───────────────────────────────────────── */
+.contact-section {
+  background: linear-gradient(135deg, #d6ece4 0%, #e8e0d0 50%, #dff0ea 100%);
+  position: relative;
+}
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(58,125,110,.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 30%, rgba(212,114,92,.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.contact-glass {
+  background: rgba(255,255,255,.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: var(--radius-lg);
+  padding: 48px 44px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.6);
+  position: relative;
+  z-index: 1;
+}
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -697,9 +722,12 @@ img { max-width: 100%; display: block; }
 }
 .contact-info-card {
   padding: 36px;
-  background: var(--bg-card);
+  background: rgba(255,255,255,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.4);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 16px rgba(0,0,0,.04);
 }
 .contact-info-title {
   font-family: var(--font-display);
@@ -717,7 +745,7 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; gap: 14px;
   padding: 14px;
   border-radius: var(--radius-sm);
-  background: var(--bg);
+  background: rgba(244,241,235,.5);
   transition: var(--transition);
   text-decoration: none;
   color: var(--text-secondary);
@@ -745,8 +773,8 @@ img { max-width: 100%; display: block; }
 .form-input, .form-textarea {
   padding: 13px 16px;
   border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  border: 1.5px solid #d9d5ce;
+  background: rgba(255,255,255,.55);
+  border: 1.5px solid rgba(255,255,255,.5);
   color: var(--text);
   font-family: var(--font-body);
   font-size: .94rem;
@@ -811,6 +839,7 @@ img { max-width: 100%; display: block; }
   .resume-columns { grid-template-columns: 1fr; gap: 36px; }
   .achievements-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-glass { padding: 32px 24px; }
 }
 
 @media (max-width: 768px) {

@@ -71,7 +71,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="section" id="contact">
+    <section className="section contact-section" id="contact">
       <div className="container">
         <motion.div
           initial="hidden"
@@ -79,6 +79,7 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
         >
+          <div className="contact-glass">
           <motion.span className="section-label" variants={itemVariants}>
             <FiMail /> Contact
           </motion.span>
@@ -237,6 +238,7 @@ export default function Contact() {
                 )}
               </motion.button>
             </motion.form>
+          </div>
           </div>
         </motion.div>
       </div>
