@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { FiAward } from 'react-icons/fi'
 
 const achievements = [
-  { icon: '🏅', number: 1, suffix: '', label: 'AWS Certification' },
+  { icon: '🏅', number: 1, suffix: '', label: 'AWS Certification', link: 'https://www.credly.com/badges/df31acb0-6036-4f37-81d0-f89bab2eed16/linked_in?t=rxzbvx' },
   { icon: '🚀', number: 5, suffix: '+', label: 'Production Releases' },
   { icon: '⚙️', number: 2, suffix: '', label: 'Delivery Tracks' },
   { icon: '📦', number: 10, suffix: '+', label: 'Features Shipped' },
@@ -70,20 +70,30 @@ export default function Achievements() {
           </motion.p>
 
           <div className="achievements-grid">
-            {achievements.map((item) => (
-              <motion.div
-                key={item.label}
-                className="achievement-card"
-                variants={cardVariants}
-                whileHover={{ scale: 1.06, rotate: 1 }}
-              >
-                <span className="achievement-icon">{item.icon}</span>
-                <div className="achievement-number">
-                  <AnimatedCounter target={item.number} suffix={item.suffix} />
-                </div>
-                <p className="achievement-label">{item.label}</p>
-              </motion.div>
-            ))}
+            {achievements.map((item) => {
+              const card = (
+                <motion.div
+                  key={item.label}
+                  className={`achievement-card${item.link ? ' achievement-clickable' : ''}`}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.06, rotate: 1 }}
+                >
+                  <span className="achievement-icon">{item.icon}</span>
+                  <div className="achievement-number">
+                    <AnimatedCounter target={item.number} suffix={item.suffix} />
+                  </div>
+                  <p className="achievement-label">{item.label}</p>
+                  {item.link && <span className="achievement-verify">View credential ↗</span>}
+                </motion.div>
+              )
+              return item.link ? (
+                <a key={item.label} href={item.link} target="_blank" rel="noreferrer" className="achievement-link-wrapper">
+                  {card}
+                </a>
+              ) : (
+                <div key={item.label}>{card}</div>
+              )
+            })}
           </div>
         </motion.div>
       </div>

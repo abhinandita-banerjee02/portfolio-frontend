@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiFolder, FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiFolder, FiGithub } from 'react-icons/fi'
 
 const projects = [
   {
@@ -8,8 +8,7 @@ const projects = [
       'An inclusive web application empowering visually impaired students with enhanced note-taking and reading tools. Features real-time object detection and recognition powered by TensorFlow and the COCO-SSD model, combined with text-to-speech and speech-to-text capabilities via the SpeechSynthesis API — enabling users to create, listen to, and manage notes, books, and PDFs for effective learning.',
     tags: ['React.js', 'TensorFlow', 'COCO-SSD', 'SpeechSynthesis API', 'JavaScript'],
     emoji: '🌿',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/abhinandita-banerjee02/komorebi',
   },
   {
     title: 'Effective Billing Date Feature',
@@ -17,8 +16,7 @@ const projects = [
       'Designed and developed the Effective Billing Date (EBD) computation engine for PLDT\'s B2C residential service activation flow as part of a large-scale OSS transformation program. Ensures accurate billing cycle start dates across multi-service orders spanning Internet, VoIP, IPTV, and Wireless — handling complex date logic, proration rules, and cross-service dependencies.',
     tags: ['Java', 'Spring Boot', 'REST APIs', 'Java Stream API', 'Microservices'],
     emoji: '📅',
-    github: '#',
-    live: '#',
+    github: null,
   },
   {
     title: 'Eat-n-Repeat — Restaurant Finder',
@@ -26,8 +24,7 @@ const projects = [
       'A mobile application that lets users discover restaurants by location and custom search queries. Built with a clean, intuitive interface featuring real-time search, restaurant details, ratings, and location-based recommendations powered by third-party APIs and community modules.',
     tags: ['React Native', 'REST APIs', 'Community Modules', 'Mobile'],
     emoji: '🍕',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/abhinandita-banerjee02/Eat-n-repeat',
   },
   {
     title: 'IOCL Hall Booking System',
@@ -35,8 +32,7 @@ const projects = [
       'A full-stack conference room reservation system built during an internship at Indian Oil Corporation Ltd. Enables the IS department to seamlessly book, manage, and track meeting room availability — improving scheduling efficiency and eliminating double-booking issues across offices.',
     tags: ['React Native', 'Node.js', 'MongoDB', 'Full Stack'],
     emoji: '🏢',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/abhinandita-banerjee02/ioclapp',
   },
 ]
 
@@ -88,12 +84,11 @@ export default function Projects() {
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
                   <div className="project-links">
-                    <a href={project.github} className="project-link" target="_blank" rel="noreferrer">
-                      <FiGithub /> Code
-                    </a>
-                    <a href={project.live} className="project-link" target="_blank" rel="noreferrer">
-                      <FiExternalLink /> Live Demo
-                    </a>
+                    {project.github && (
+                      <a href={project.github} className="project-link" target="_blank" rel="noreferrer">
+                        <FiGithub /> Code
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>

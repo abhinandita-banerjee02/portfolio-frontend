@@ -49,7 +49,43 @@ img { max-width: 100%; display: block; }
 
 /* ── Layout ────────────────────────────────────────── */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
-.section { padding: var(--section-gap); position: relative; }
+.section { padding: var(--section-gap); position: relative; z-index: 1; }
+
+/* ── Background decorations ───────────────────────── */
+.bg-decorations {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-deco {
+  position: absolute;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.deco-leaf-1 { top: 8%; left: 5%; animation: floatY 7s 0s infinite alternate, spinSlow 22s linear infinite; }
+.deco-leaf-2 { top: 45%; right: 4%; animation: floatY 9s 1.5s infinite alternate, spinSlow 28s linear infinite reverse; }
+.deco-leaf-3 { bottom: 18%; left: 12%; animation: floatY 8s 3s infinite alternate, spinSlow 30s linear infinite; }
+.deco-circle-1 { top: 20%; right: 10%; animation: floatY 6s 0.5s infinite alternate; }
+.deco-circle-2 { bottom: 32%; left: 7%; animation: floatY 10s 2s infinite alternate; }
+.deco-dot-1 { top: 55%; left: 3%; animation: floatY 5s 0s infinite alternate; }
+.deco-dot-2 { top: 15%; right: 18%; animation: floatY 7s 1s infinite alternate; }
+.deco-dot-3 { bottom: 10%; right: 8%; animation: floatY 6s 2.5s infinite alternate; }
+.deco-star-1 { top: 35%; left: 18%; animation: floatY 8s 0.8s infinite alternate, spinSlow 18s linear infinite; }
+.deco-star-2 { bottom: 25%; right: 15%; animation: floatY 9s 1.2s infinite alternate, spinSlow 24s linear infinite reverse; }
+.deco-plus-1 { top: 65%; right: 6%; animation: floatY 7s 1.8s infinite alternate, spinSlow 20s linear infinite; }
+.deco-plus-2 { top: 10%; left: 22%; animation: floatY 6s 0.4s infinite alternate, spinSlow 26s linear infinite reverse; }
+
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-18px); }
+}
+@keyframes spinSlow {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 /* ── Section headings ──────────────────────────────── */
 .section-label {
@@ -407,8 +443,9 @@ img { max-width: 100%; display: block; }
 }
 .about-text p {
   color: var(--text-secondary);
-  margin-bottom: 18px;
-  font-size: 1.02rem;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.9;
 }
 .about-stats {
   display: grid;
@@ -639,6 +676,17 @@ img { max-width: 100%; display: block; }
   margin-bottom: 6px;
 }
 .achievement-label { font-size: .88rem; color: var(--text-secondary); }
+.achievement-link-wrapper { text-decoration: none; color: inherit; display: block; }
+.achievement-clickable { cursor: pointer; }
+.achievement-clickable:hover { border: 1.5px solid var(--accent); }
+.achievement-verify {
+  display: block;
+  margin-top: 8px;
+  font-size: .74rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .5px;
+}
 
 /* ── Contact ───────────────────────────────────────── */
 .contact-grid {

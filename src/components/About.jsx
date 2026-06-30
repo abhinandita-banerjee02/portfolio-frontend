@@ -154,23 +154,13 @@ export default function About() {
 
             <motion.div className="about-text" variants={containerVariants}>
               <motion.p variants={itemVariants}>
-                I&apos;m Abhinandita — a Software Engineer at Amdocs with a B.Tech in Computer
-                Science from VIT Vellore. I build Java &amp; Spring Boot microservices that
-                power large-scale telecom fulfillment systems, working across orchestration,
-                billing integration, and service activation domains.
+                Software Engineer at Amdocs, building Java &amp; Spring Boot microservices
+                for large-scale telecom systems. AWS Certified Solutions Architect with
+                hands-on experience across React, REST APIs, and cloud-native architecture.
               </motion.p>
               <motion.p variants={itemVariants}>
-                My experience spans both frontend and backend — from crafting React and React
-                Native applications to designing REST APIs, event-driven consumers, and
-                rule-based orchestration engines. I&apos;m an AWS Certified Solutions
-                Architect and enjoy architecting cloud-native solutions that are resilient
-                and cost-optimized.
-              </motion.p>
-              <motion.p variants={itemVariants}>
-                I&apos;m driven by the challenge of turning complex business requirements
-                into clean, maintainable code. Whether it&apos;s debugging production
-                fallouts or building accessibility tools for visually impaired students,
-                I bring the same passion for quality and impact.
+                I love turning complex requirements into clean, reliable code — whether
+                it&apos;s orchestration engines or accessibility tools for students.
               </motion.p>
 
               <motion.div className="about-stats" variants={containerVariants}>
