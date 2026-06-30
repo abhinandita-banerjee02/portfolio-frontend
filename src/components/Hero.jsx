@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiArrowRight, FiDownload } from 'react-icons/fi'
 
-const roles = ['Software Engineer', 'Full Stack Developer', 'Cloud Enthusiast']
+const roles = ['Software Engineer', 'Full Stack Developer', 'Java Developer']
 
 function useTypingEffect(strings, typingSpeed = 80, deletingSpeed = 40, pauseDuration = 2200) {
   const [displayed, setDisplayed] = useState('')
